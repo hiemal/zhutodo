@@ -9,8 +9,10 @@ int main() {
 
 	std::string fpath = "../tasks.txt";
 	mainManager.loadTasksFromFile(fpath);
+	TaskContainer undonetsk = mainManager.getUndoneTasks();
 
 	Task t("Test with space.");
+	t.setDDL("2017-01-27");
 	mainManager.addTask(t);
 
 	TaskContainer todos = mainManager.getAllTasks();

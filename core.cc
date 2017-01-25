@@ -115,3 +115,16 @@ void Manager::writeTasksToFile(std::string fname) {
 		std::cout << "Write task " << t.getDesc() << std::endl;
 	}
 }
+
+
+TaskContainer Manager::getUndoneTasks() {
+	// TODO - should use reference
+	TaskContainer udtsk;
+	for (auto t:allTasks){
+		if (!t.done()) {
+			udtsk.push_back(t);
+		}
+	}
+	this->undoneTasks = udtsk;
+	return this->undoneTasks;
+}

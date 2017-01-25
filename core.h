@@ -69,7 +69,7 @@ void addTask(Task);
 
 protected:
 std::string name;
-TaskContainer allTasks;
+TaskContainer allTasks, undoneTasks;
 
 };
 
