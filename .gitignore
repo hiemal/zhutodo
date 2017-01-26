@@ -32,7 +32,7 @@
 *.exe
 *.out
 *.app
-
+zhutodo
 
 .idea/
 CMakeLists.txt

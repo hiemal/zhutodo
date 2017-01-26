@@ -3,8 +3,18 @@
 
 #include <string>
 #include <vector>
-
 #include <ctime>
+#include <iostream>
+
+#include <unistd.h>
+#include <term.h>
+
+
+
+
+
+
+
 
 
 
@@ -44,6 +54,9 @@ bool done(){
 }
 
 std::string toString();
+std::string toFile(); // toString without UID
+
+int uid;
 
 protected:
 std::string description;
@@ -57,19 +70,32 @@ typedef std::vector<Task> TaskContainer;
 
 class Manager{
 public:
+
 Manager(std::string);
 TaskContainer getAllTasks();
 TaskContainer getUndoneTasks();
 TaskContainer getDoneTasks();
+void showAllTasks();
 
-void loadTasksFromFile(std::string);
-void writeTasksToFile(std::string);
+void loadTasksFromFile();
+void writeTasksToFile();
 
 void addTask(Task);
 
+void showHelp();
+
+// user manipulation
+void mainLoop();
+
 protected:
+
+bool isOperationLegal(std::string);
+void handleUserInput(std::string);
+
+std::string fpath;
 std::string name;
 TaskContainer allTasks, undoneTasks;
+bool programRun;
 
 };
 
