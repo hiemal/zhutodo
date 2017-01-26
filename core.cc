@@ -234,6 +234,7 @@ void Manager::writeTasksToFile() {
 
 
 void Manager::showAllTasks() {
+	std::cout << std::setw(2) << "id" << " | " << std::setw(40) <<  "description" << " | " <<  std::setw(12) << "createTime" << " | " << std::setw(12) << "ddl" << " | " << std::setw(7) << "status" << std::endl;
 	std::cout << "---------------------------------------------------------------------------------------" << std::endl;
 	for (auto &task:this->allTasks){
 		std::cout << task.toString() << std::endl;
