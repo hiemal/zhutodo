@@ -142,7 +142,7 @@ void Manager::handleUserInput(std::string s) {
 		std::string desc;
 		std::cin >> desc;
 		Task t(desc);
-		std::cout << "type deadline:" << std::endl;
+		std::cout << "type deadline (0 for no deadline): " << std::endl;
 		zhutime ddl;
 		std::cin >> ddl;
 		t.setDDL(ddl);
