@@ -15,3 +15,12 @@ Run `build.sh` to build. The tasks will be saved/loaded from "tasks.txt" in the 
  - sud: set task to undone
  - rm: delete task
  - add: add new task
+
+## Examples:
+```
+id |                              description |   createTime |          ddl |  status
+---------------------------------------------------------------------------------------
+ 0 |                                     oink |   2017-01-26 |         None |  Undone
+ 1 |                                   sample |   2017-01-27 |   2017-02-01 |  Undone
+---------------------------------------------------------------------------------------
+```
