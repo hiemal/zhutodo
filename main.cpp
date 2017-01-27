@@ -1,12 +1,12 @@
 #include <iostream>
 
-
 #include "core.h"
 
-int main() {
+int main()
+{
 
-	Manager mainManager("main");
-	mainManager.loadTasksFromFile();
-	mainManager.mainLoop();
-	return 0;
+    Manager mainManager("main");
+    mainManager.loadTasksFromFile();
+    mainManager.mainLoop();
+    return 0;
 }

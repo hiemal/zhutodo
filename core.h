@@ -9,99 +9,89 @@
 #include <unistd.h>
 #include <term.h>
 
-
-
-
-
-
-
-
-
-
 typedef std::string zhutime;
 
-class Task{
+class Task
+{
 
-public:
-Task(std::string);
+  public:
+    Task(std::string);
 
-std::string getDesc(){
+    std::string getDesc()
+    {
 	return this->description;
-}
+    }
 
-void setDDL(zhutime t){
+    void setDDL(zhutime t)
+    {
 	this->deadline = t;
-}
+    }
 
-zhutime getDDL(){
+    zhutime getDDL()
+    {
 	return this->deadline;
-}
+    }
 
-zhutime getCreateTime(){
+    zhutime getCreateTime()
+    {
 	return this->createTime;
-}
+    }
 
-void setCreateTime(zhutime t){
+    void setCreateTime(zhutime t)
+    {
 	this->createTime = t;
-}
+    }
 
-void setDone(bool b){
+    void setDone(bool b)
+    {
 	this->isDone = b;
-}
+    }
 
-bool done(){
+    bool done()
+    {
 	return this->isDone;
-}
+    }
 
-std::string toString();
-std::string toFile(); // toString without UID
+    std::string toString();
+    std::string toFile(); // toString without UID
 
-int uid;
+    int uid;
 
-protected:
-std::string description;
-zhutime deadline, createTime;
-bool isDone;
-
+  protected:
+    std::string description;
+    zhutime deadline, createTime;
+    bool isDone;
 };
-
 
 typedef std::vector<Task> TaskContainer;
 
-class Manager{
-public:
+class Manager
+{
+  public:
+    Manager(std::string);
+    TaskContainer getAllTasks();
+    TaskContainer getUndoneTasks();
+    TaskContainer getDoneTasks();
+    void showAllTasks();
 
-Manager(std::string);
-TaskContainer getAllTasks();
-TaskContainer getUndoneTasks();
-TaskContainer getDoneTasks();
-void showAllTasks();
+    void loadTasksFromFile();
+    void writeTasksToFile();
 
-void loadTasksFromFile();
-void writeTasksToFile();
+    void addTask(Task);
 
-void addTask(Task);
+    void showHelp();
 
-void showHelp();
+    // user manipulation
+    void mainLoop();
 
-// user manipulation
-void mainLoop();
+  protected:
+    bool isOperationLegal(std::string);
+    void handleUserInput(std::string);
 
-protected:
-
-bool isOperationLegal(std::string);
-void handleUserInput(std::string);
-
-std::string fpath;
-std::string name;
-TaskContainer allTasks, undoneTasks;
-bool programRun;
-
+    std::string fpath;
+    std::string name;
+    TaskContainer allTasks, undoneTasks;
+    bool programRun;
 };
-
-
-
-
-
 
 #endif
